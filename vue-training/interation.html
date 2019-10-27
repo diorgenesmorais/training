@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-bR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interação</title>
+    <style>
+        body {
+            font: normal 16px Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <input type="text" v-model="message">
+        <br>
+        <button v-on:click="addMessage()">Acrscentar</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Mensagem para o usuário'
+            },
+            methods: {
+                addMessage() {
+                    this.message = this.message + ', obrigado'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
