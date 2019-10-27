@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue início</title>
+    <style>
+        body {
+            font: normal 16 Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>{{ saudacao }}</h1>
+            <span v-bind:title="message">
+                Pare o mouse sobre mim
+            </span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                saudacao: 'Seja bem vindo!',
+                message: 'Veja a data e hora atual ' + new Date().toLocaleString()
+            }
+        })
+    </script>
+</body>
+</html>
