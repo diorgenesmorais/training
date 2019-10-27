@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Repetição</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <ol class="list-group">
+                <li class="list-group-item" v-for="assunto in assuntos">{{ assunto.descrition }}</li>
+            </ol>
+            <br>
+            <div class="input-group">
+                <input type="text" class="form-control" v-model="assunto" placeholder="Adicione um assunto aqui">
+                <div class="input-group-append">
+                    <button class="btn btn-info" @click="addAssunto(assunto)"><span class="fa fa-plus"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                assunto: '',
+                assuntos: [
+                    { descrition: "Javascript" },
+                    { descrition: "Java" },
+                    { descrition: "Spring" },
+                    { descrition: "Vue" },
+                    { descrition: "Angular" }
+                ]
+            },
+            methods: {
+                addAssunto(tema) {
+                    this.assuntos.push({ descrition: tema })
+                    this.assunto = ''
+                }
+            }
+        })
+    </script>
+</body>
+</html>
