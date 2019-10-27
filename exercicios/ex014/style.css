@@ -1,0 +1,28 @@
+body {
+    font: normal 16px Arial;
+    background: rgb(245, 142, 45);
+}
+header, footer {
+    text-align: center;
+    color: white;
+}
+section {
+    width: 500px;
+    padding: 15px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.356);
+}
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+#btn {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 10px;
+    background: rgb(55, 55, 245);
+    color: white;
+    border-radius: 5px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PrimeNg</title>
+    <link rel="stylesheet" href="mangula.css">
+    <link rel="stylesheet" href="fontawesome.css">
+    <link rel="stylesheet" href="style.main.css">
+</head>
+<body>
+<div class="container">
+<header>
+        <h1> Nota para atualização de dependências </h1>
+</header>
+<section>
+    <div class="o-text-content o-text">
+        <p>
+            Este documento irá te auxiliar a fazer esta aula com a versão mais recente do Angular e suas dependências.
+            Atualmente a versão mais recente do Angular é a 8.
+            
+        </p>
+        
+        <p>
+            Observação: Este documento é apenas para os que querem usar as versões mais recentes das dependências contidas nesta aula. Ao longo do curso iremos atualizar as dependências, mas caso queira atualizar agora, use este documento como guia.  
+        </p>
+        
+        <h2>
+            1. Informações
+        </h2>
+        
+        <p> Para seguir esta aula, algumas alterações serão necessárias, devido às atualizações do PrimeNG</p>
+        
+        <h2>
+            2. Instalação dos pacotes
+        </h2>
+        
+        <p> Na versão atual, o PrimeNG não faz mais uso da biblioteca font-awesome. </p>
+        <p> Foi criado uma biblioteca própria do PrimeNG para substituí-lo, que é o primeicons</p>
+        <p> Portanto, para a instalação dos componentes PrimeNG, será necessário os seguintes comandos: </p>
+<pre>
+<code class="o-source-code hljs">
+npm install primeng --save<br />
+npm install primeicons --save            
+</code>
+</pre>
+        
+        <p> Você verá que as dependências foram instaladas com sucesso, pelo seu arquivo package.json</p>
+<pre>
+<code class="o-source-code hljs">
+"dependencies": { <br/>
+    //... <br/>
+    "primeicons": "^1.0.0", <br/>
+    "primeng": "^8.0.0-rc.1" <br/>
+} <br/>
+</code>
+</pre>
+        <h2> 
+            3. Adicionando estilos
+        </h2>
+        
+        <p> Na aula é mostrado como inserir os estilos do PrimeNG no arquivo .angular-cli.json </p>
+        <p> Na versão atual do Angular, o arquivo .angular-cli.json foi renomeado para angular.json. 
+            Tiveram mudanças em sua estrutura, porém ainda existe a propriedade "styles", 
+            onde devemos inserir os valores que estão na documentação do PrimeNG. </p>
+        <p> Outra diferença é que neste arquivo, o atributo "root" é configurado com o valor "" e não com "src", como era no formato antigo. 
+            Isso implica, que não usaremos "../node_modules/", pois já estamos no diretóio raíz (o mesmo da pasta node_modules).
+            Então devemos usar "node_modules/"
+        </p>
+        <p> A docuemntação também mudou, pois alguns temas foram alterados e o padrão para a propriedade styles está assim: </p>
+<pre>
+<code class="o-source-code hljs">
+"node_modules/primeicons/primeicons.css",<br/>
+"node_modules/primeng/resources/themes/nova-light/theme.css",<br/>
+"node_modules/primeng/resources/primeng.min.css",<br/>
+</code>
+</pre>
+</div>                    
+    </section>
+</div>
+</body>
+</html>

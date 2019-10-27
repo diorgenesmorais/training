@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Idade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Idade</h1>
+    </header>
+    <section>
+        <div>
+            <fieldset>
+                <legend>Calcular ano de nascimento</legend>
+                <label for="ano">Ano</label>
+                <input type="number" name="ano" id="ano" min="0">
+
+                <input type="radio" name="radsex" id="masc" checked>
+                <label for="masc">Masculino</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Feminino</label>
+            </fieldset>
+            <button id="btn">Verificar</button>
+        </div>
+        <div id="resultado"></div>
+    </section>
+    <footer>
+        <p>CursoEmVideo</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

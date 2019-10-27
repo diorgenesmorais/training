@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seleção</title>
+    <style>
+        body {
+            font: normal 16px Arial;
+        }
+        textarea, button {
+            display: block;
+        }
+        textarea, button, input {
+            margin: 10px 0;
+        }
+        button {
+            font-weight: bold;
+            background: blue;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="descricao" id="descricao" cols="30" rows="10">Era uma vez um gato, que mundo é esse?</textarea>
+    <button id="btnTextarea">Selecionar</button>
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" >
+    <button id="btnInput">Selecionando</button>
+    <script>
+        document.querySelector('#btnTextarea').addEventListener('click', ()=>{
+            let text = document.querySelector('#descricao')
+            text.setSelectionRange(3,15)
+            text.focus()
+        })
+
+        document.querySelector('#btnInput').addEventListener('click', ()=>{
+            let textInput = document.querySelector('#nome')
+            textInput.setSelectionRange(2, 6)
+            textInput.focus()
+        })
+    </script>
+</body>
+</html>

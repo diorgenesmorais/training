@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Imagens</title>
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="contigenciamento.jpeg" alt="Picapau">
+    <script>
+        document.querySelector('img').addEventListener('click', (ev)=>{
+            console.log(ev.target);
+            //alert(ev.target.width)
+            //alert(ev.target.naturalWidth + 'x' + ev.target.naturalHeight)
+        })
+    </script>
+</body>
+</html>

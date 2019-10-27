@@ -1,0 +1,21 @@
+body {
+    font: normal 16px Arial, Helvetica, sans-serif;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+.selector {
+    width: 300px;
+}
+.image {
+    width: 100%;
+}
+#img1 {
+    width: 372px;
+    height: 332px;
+    background-image: url('http://teste.local/aulas/seletores/images/contigenciamento.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

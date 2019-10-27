@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carousel</title>
+    <style>
+        .container, .commands {
+            display: flex;
+            justify-content: center;
+        }
+        .item {
+            width: 300px;
+            height: 300px;
+            margin: 5px;
+        }
+        img {
+            width: 300px;
+        }
+        .q1 {
+            background: rgb(247, 153, 46);
+        }
+        .q2 {
+            background: rgb(66, 184, 66);
+        }
+        .q3 {
+            background: rgb(89, 89, 241);
+        }
+        .q4 {
+            background: rgb(241, 88, 88);
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de carousel</h1>
+    <div class="container">
+        <div class="item">
+            <img src="./manha.jpg" alt="manhã" >
+        </div>
+        <div class="item">
+            <img src="./tarde.jpg" alt="tarde" >
+        </div>
+        <div class="item">
+            <img src="./noite.jpg" alt="noite" >
+        </div>
+    </div>
+    <div class="commands">
+        <button id="btn-l">Anterior</button>
+        <button id="btn-r">Próximo</button>
+    </div>
+    <script>
+        "use strict";
+        (function(d){
+            var divs = Array.prototype.slice.call(d.querySelectorAll('.item'));
+            var images = Array.prototype.slice.call(d.querySelectorAll('img'));
+
+            var srcsImages = images.map(function(i){return i.attributes[0].value});
+            var i = 0;
+            d.querySelector('#btn-l').addEventListener('click', anterior);
+            d.querySelector('#btn-r').addEventListener('click', proximo);
+
+            function mudarImagem(){
+                images[0].attributes[0].value = srcsImages[i];
+            }
+
+            function anterior(){
+                if(i < srcsImages.length && i > 0){
+                    --i;
+                } else {
+                    i=srcsImages.length-1;
+                }
+                mudarImagem();
+            }
+            function proximo(){
+                if(i < srcsImages.length-1 && i >= 0){
+                    ++i;
+                } else {
+                    i=0;
+                }
+                mudarImagem();
+            }
+
+            function mudar(element){
+                this.classList.remove(this.classList[1]);
+                this.classList.add('q4');
+            }
+
+            function addClass(element, index, array){
+                element.classList.add('q' + (index+1));
+                element.addEventListener('click', mudar);
+            }
+
+            divs.forEach(addClass);
+
+            console.log(srcsImages);
+            // teste.forEach(function(element, index, array){
+            //     console.log(array[index]);
+            // });
+        })(document);
+    </script>
+</body>
+</html>

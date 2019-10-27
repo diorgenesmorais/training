@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+    <style>
+        body {
+            font: normal 16px Arial;
+            width: 100%;
+        }
+        button {
+            font-weight: bold;
+            background: rgb(19, 19, 248);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fazendo requisições ajax</h1>
+        <button id="fazer">Fazer requisição</button>
+    </header>
+    <script>
+        var superHeroes;
+        var App = (function(app, d){
+            let header = d.querySelector('header');
+            let p = d.createElement('p');
+            d.querySelector("#fazer").addEventListener('click', function(){
+                let requestURL = '166933.xml';
+                let request = new XMLHttpRequest();
+                request.responseType = 'xml';
+                request.onload = () => { 
+                    superHeroes = request.response;
+                    console.log(request.status);
+                    p.textContent = superHeroes;
+                    header.appendChild(p);
+                }
+                request.onerror = () => console.error("ERROR na requisição:", request.statusText);
+                
+                request.open('GET', requestURL);
+                request.send();
+            });
+
+            return app;
+        }(App || {}, document));
+    </script>
+</body>
+</html>

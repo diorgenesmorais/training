@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Customizar</title>
+    <link rel="stylesheet" href="style.main.css">
+    <link rel="stylesheet" href="mangula.css">
+    <link rel="stylesheet" href="fontawesome.css">
+</head>
+<body>
+<div class="container">
+<header>
+    <h1> Nota para atualização de dependências </h1>
+</header>
+<section>
+    <div class="o-text-content o-text">
+        <p>
+            Este documento irá te auxiliar a fazer esta aula com a versão mais recente do Angular e suas dependências.
+            Atualmente a versão mais recente do Angular é a 8.
+            
+        </p>
+        
+        <p>
+            Observação: Este documento é apenas para os que querem usar as versões mais recentes das dependências contidas nesta aula. Ao longo do curso iremos atualizar as dependências, mas caso queira atualizar agora, use este documento como guia.  
+        </p>
+        
+        
+        <h2>
+            1. Customizando cabeçalho
+        </h2>
+        
+        <p> Como vimos anteriormente, o componente Table já trabalha baseado em templates, portanto o trabalho de customizar o cabeçalho ou o próprio conteúdo fica bem mais simples </p>
+        <p> Como feito no início da aula, para adicionarmos um botão no cabeçalho da nossa tabela, precisaríamos apenas adicioná-lo dentro da tag "th": </p>
+<pre>
+<code class='o-source-code hljs html'>
+&#x3C;p-table [value]=&#x22;lancamentos&#x22;&#x3E;
+&#x3C;ng-template pTemplate=&#x22;header&#x22;&#x3E;
+    &#x3C;tr&#x3E;
+        &#x3C;!-- ... --&#x3E;
+        &#x3C;th class=&#x22;col-valor-header&#x22;&#x3E; &#x3C;button pButton label=&#x22;Teste&#x22;&#x3E;&#x3C;/button&#x3E;&#x3C;/th&#x3E;
+        &#x3C;!-- ... --&#x3E;
+    &#x3C;/tr&#x3E;
+&#x3C;/ng-template&#x3E;
+&#x3C;ng-template pTemplate=&#x22;body&#x22; let-lancamento&#x3E;
+    &#x3C;tr&#x3E;            
+        &#x3C;!-- ... --&#x3E;
+    &#x3C;/tr&#x3E;
+&#x3C;/ng-template&#x3E;
+&#x3C;/p-table&#x3E;
+</code>
+</pre>
+        <h2>2. Estilos</h2>
+        
+        <p> Para aplicar o estilo condicional, também será bem mais fácil, pois já estamos utilizando template. Portanto, já temos o componente do body e temos a variável lancamento. </p> 
+        <p> Neste caso, aplicaremos o estilo condicional da mesma forma, porém direto na tag "td". </p>
+        <p> Claro que é possível também colocarmos uma tag "span" para o mesmo efeito: </p>
+<pre>
+<code class='o-source-code hljs html'>
+&#x3C;td class=&#x22;col-valor-content&#x22; [ngStyle]=&#x22;{ color: lancamento.tipo === &#x27;DESPESA&#x27; ? &#x27;red&#x27; : &#x27;blue&#x27;}&#x22;&#x3E;{{lancamento.valor}}&#x3C;/td&#x3E;
+
+&#x3C;!-- ou... --&#x3E;
+
+&#x3C;td class=&#x22;col-valor-content&#x22; [style.color]=&#x22;lancamento.tipo === &#x27;DESPESA&#x27; ? &#x27;red&#x27; : &#x27;blue&#x27;&#x22;&#x3E;{{lancamento.valor}}&#x3C;/td&#x3E;
+
+&#x3C;!-- ou... --&#x3E;
+
+&#x3C;td class=&#x22;col-valor-content&#x22;&#x3E;
+&#x3C;span [style.color]=&#x22;lancamento.tipo === &#x27;DESPESA&#x27; ? &#x27;red&#x27; : &#x27;blue&#x27;&#x22;&#x3E;{{lancamento.valor}} &#x3C;/span&#x3E;
+&#x3C;/td&#x3E;
+</code>
+</pre>
+        <h2>3. Ícones</h2>
+        
+        <p> Na versão mostrada na aula, utilizamos font-awsome para nossos ícones, mas como falamos anteriormente, o PrimeNG agora nos fornece sua própria biblioteca de ícones. </p>
+        <p> Para usá-la, não muda muita coisa. Precisamos apenas adptar o prefixo "fa" para "pi". E antes do nome do ícone, também devemos colocar o prefixo "pi" de forma isolada: </p>
+        <pre>
+            <code class='o-source-code hljs html'>
+            &#x3C;td class=&#x22;col-acoes&#x22;&#x3E; 
+            &#x3C;a pButton icon=&#x22;pi pi-pencil&#x22;&#x3E;&#x3C;/a&#x3E; 
+            &#x3C;button pButton icon=&#x22;pi pi-trash&#x22;&#x3E;&#x3C;/button&#x3E; 
+            &#x3C;/td&#x3E;
+            </code>
+        </pre>
+    </div>
+        </section>
+    </div>
+</body>
+</html>

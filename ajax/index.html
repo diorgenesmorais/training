@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+    <style>
+        body {
+            font: normal 16px Arial;
+        }
+        button {
+            font-weight: bold;
+            background: rgb(19, 19, 248);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fazendo requisições ajax</h1>
+    <button id="fazer">Fazer requisição</button>
+    <script>
+        var superHeroes;
+        var App = (function(app, d){
+            d.querySelector("#fazer").addEventListener('click', function(){
+                let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+                function status(response){
+                    if (response.status >= 200 && response.status < 300) {
+                        return Promise.resolve(response)
+                    } else {
+                        return Promise.reject(new Error(response.statusText))
+                    }
+                }
+                function json(response){
+                    return response.json();
+                }
+                // 'http://localhost:8080/bandeiras/6'
+                fetch(requestURL, {mode: 'cors'})
+                    .then(status)
+                    .then(json)
+                    .then(function(data){
+                        console.log("Resposta:", data);
+                        superHeroes = data;
+                    })
+                    .catch(error => console.log('Error', error));
+            });
+
+            return app;
+        }(App || {}, document));
+    </script>
+</body>
+</html>
